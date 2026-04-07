@@ -5,28 +5,132 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Weather Agent</title>
   <link rel="stylesheet" href="/static/style.css" />
-  <script src="/static/script.js"></script>
 </head>
 <body>
-  <div class="card">
-    <h1>Weather Agent</h1>
-    <p class="subtitle">Powered by Claude</p>
 
-    <label for="location">Your location</label>
-    <input type="text" id="location" placeholder="e.g. Oslo" autocomplete="off" />
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
 
-    <label for="query">Ask about the weather</label>
-    <input type="text" id="query" placeholder="e.g. What should I wear today?" autocomplete="off" />
+    <div class="card">
+      <h1>Weather Agent</h1>
+      <p class="subtitle">Powered by Claude &amp; LangChain</p>
 
-    <button id="btn" onclick="fetchWeather()">Get Weather</button>
+      <label for="location">City</label>
+      <input type="text" id="location" placeholder="e.g. Oslo" autocomplete="off" />
 
-    <div class="error" id="error"></div>
-    <div class="status" id="status"></div>
+      <label for="query">Ask about the weather</label>
+      <input type="text" id="query" placeholder="e.g. What should I wear today?" autocomplete="off" />
 
-    <div class="result" id="result">
-      <div class="weather-conditions" id="conditions"></div>
-      <div class="punny-response" id="response"></div>
+      <button id="btn" onclick="fetchWeather()">Get Weather</button>
+
+      <div class="error" id="error"></div>
+      <div class="status" id="status"></div>
+
+      <div class="result" id="result">
+        <div class="weather-conditions" id="conditions"></div>
+        <div class="punny-response" id="response"></div>
+      </div>
     </div>
-  </div>
+
+    <div class="scroll-hint">
+      <span>Scroll to learn more</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <h2 class="section-title">Built for real conversations</h2>
+      <p class="section-subtitle">No dropdowns, no forms. Just ask.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>Natural Language</h3>
+          <p>Ask anything from "What should I wear?" to "Will it snow this weekend in Tromsø?"</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📡</div>
+          <h3>Live Weather Data</h3>
+          <p>Pulls real-time conditions from Open-Meteo; temperature, wind speed, and weather codes.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>AI-Powered</h3>
+          <p>Claude reasons about your question, decides which tools to call, and crafts a response.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-inner">
+      <h2 class="section-title">How it works</h2>
+      <p class="section-subtitle">Four steps from question to answer.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>You ask a question</h3>
+            <p>Type anything weather-related in plain English. The agent understands context and intent.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>Claude picks the right tools</h3>
+            <p>The LangChain agent decides whether to look up your location, fetch weather data, or both.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>Live data is fetched</h3>
+            <p>Open-Meteo returns current conditions. No API key required, as it's globally available.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <h3>A structured response is returned</h3>
+            <p>Claude formats the result using a typed response schema; you get clean data, no hallucinated forecasts.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-stack">
+        <span class="badge">Python</span>
+        <span class="badge">FastAPI</span>
+        <span class="badge">LangChain</span>
+        <span class="badge">LangGraph</span>
+        <span class="badge">Claude Sonnet 4.6</span>
+        <span class="badge">Open-Meteo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-meta">
+        <span>Made by <a href="https://github.com/B6sse" target="_blank" rel="noopener">Basse</a></span>
+        <a href="https://github.com/B6sse/weather-agent" target="_blank" rel="noopener">View on GitHub</a>
+        <span>Built with Claude &amp; LangChain</span>
+      </div>
+      <nav class="footer-nav">
+        <a href="#hero">Agent</a>
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How it works</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="/static/script.js"></script>
 </body>
 </html>

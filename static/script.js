@@ -82,3 +82,46 @@ async function fetchWeather() {
   document.addEventListener('keydown', e => {
     if (e.key === 'Enter') fetchWeather();
   });
+
+  // Scroll animations
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from('.section-title, .section-subtitle', {
+    scrollTrigger: { trigger: '.features', start: 'top 85%' },
+    y: 24, opacity: 0, duration: 0.7, stagger: 0.15, ease: 'power2.out',
+  });
+
+  function snapIfPast(st) {
+    if (st.progress === 1 && st.animation) st.animation.progress(1);
+  }
+
+  gsap.utils.toArray('.feature-card').forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 88%',
+        toggleActions: 'play reverse play reverse',
+        onRefresh: self => snapIfPast(self),
+      },
+      y: 50, scale: 0.93, opacity: 0, duration: 0.9, delay: i * 0.12, ease: 'power3.out',
+    });
+  });
+
+  gsap.utils.toArray('.step').forEach((step, i) => {
+    gsap.from(step, {
+      scrollTrigger: {
+        trigger: step,
+        start: 'top 88%',
+        toggleActions: 'play reverse play reverse',
+        onRefresh: self => snapIfPast(self),
+      },
+      x: -30, opacity: 0, duration: 0.6, delay: i * 0.08, ease: 'power2.out',
+    });
+  });
+
+  gsap.from('.tech-stack', {
+    scrollTrigger: { trigger: '.tech-stack', start: 'top 92%' },
+    y: 20, opacity: 0, duration: 0.6, ease: 'power2.out',
+  });
+
+  window.addEventListener('load', () => ScrollTrigger.refresh());
