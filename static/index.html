@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Agent</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <script src="/static/script.js"></script>
+</head>
+<body>
+  <div class="card">
+    <h1>Weather Agent</h1>
+    <p class="subtitle">Powered by Claude</p>
+
+    <label for="location">Your location</label>
+    <input type="text" id="location" placeholder="e.g. Oslo" />
+
+    <label for="query">Ask about the weather</label>
+    <input type="text" id="query" placeholder="e.g. What should I wear today?" />
+
+    <button id="btn" onclick="fetchWeather()">Get Weather</button>
+
+    <div class="error" id="error"></div>
+
+    <div class="result" id="result">
+      <div class="weather-conditions" id="conditions"></div>
+      <div class="punny-response" id="response"></div>
+    </div>
+  </div>
+</body>
+</html>
