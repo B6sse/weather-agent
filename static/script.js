@@ -50,8 +50,8 @@ async function fetchWeather() {
             statusEl.classList.remove('visible');
             document.getElementById('conditions').textContent = data.weather_conditions ?? '';
             document.getElementById('conditions').style.display = data.weather_conditions ? 'block' : 'none';
-            document.getElementById('response').textContent = data.punny_response;
             resultEl.classList.add('visible');
+            typewrite(document.getElementById('response'), data.punny_response);
           }
         }
       }
@@ -62,6 +62,15 @@ async function fetchWeather() {
       btn.textContent = 'Get Weather';
       statusEl.classList.remove('visible');
     }
+  }
+
+  function typewrite(el, text, delay = 20) {
+    el.textContent = '';
+    let i = 0;
+    const interval = setInterval(() => {
+      el.textContent += text[i++];
+      if (i >= text.length) clearInterval(interval);
+    }, delay);
   }
 
   function showError(msg) {
