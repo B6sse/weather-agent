@@ -113,6 +113,16 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
+.status {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  display: none;
+  text-align: center;
+}
+
+.status.visible { display: block; }
+
 .error {
   color: #ff6b6b;
   font-size: 0.9rem;
